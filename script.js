@@ -14,7 +14,7 @@ function applyAction(action) {
 }
 
 function doubleMoney(){
-  people.map(p => {p.wealth *= 2; return p;})
+  people.forEach(p => p.wealth *= 2)
   updateDom();
 }
 
@@ -50,6 +50,7 @@ function calculateWealth(){
 function updateDom(){
   const person = document.createElement('div');
   info.innerHTML = "";
+  total.innerHTML = "";
   people.forEach((p) => {
     const person = document.createElement('div');
     person.classList.add("person");
