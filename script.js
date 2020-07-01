@@ -12,6 +12,10 @@ function applyAction(action) {
   if (action === "show") onlyMills();
 }
 
+function onlyMills() {
+  people = people.filter((p) => p.wealth >= 1000000)
+  updateDom()
+}
 
 function sortPeople() {
   updateDom(people.sort((a, b) => b.wealth - a.wealth));
