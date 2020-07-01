@@ -1,11 +1,13 @@
-const buttons = document.getElementById('buttons')
+const buttons = document.getElementById('buttons');
 const info = document.getElementById('info');
+const total = document.getElementById('totalWealth');
 
 for (let i = 0; i < 3; i++) addUser();
 const people = [];
 
 function applyAction(action) {
   if (action === "add") addUser();
+  if (action === "calc") calculateWealth();
 }
 
 async function addUser() {
@@ -25,10 +27,18 @@ function addData(user) {
   info.appendChild(person);
 }
 
-
+function calculateWealth(){
+  let total = 0;
+  people.forEach((person) => {
+    total += parseInt(person.wealth.slice(1));
+  })
+  
+}
 
 
 buttons.addEventListener('click', e => {
   applyAction(e.target.id)
 })
+
+total.addEventListener('click', calculateWealth)
 
