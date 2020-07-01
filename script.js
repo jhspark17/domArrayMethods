@@ -10,6 +10,12 @@ function applyAction(action) {
   if (action === "calc") calculateWealth();
   if (action === "sort") sortPeople();
   if (action === "show") onlyMills();
+  if (action === "doub") doubleMoney();
+}
+
+function doubleMoney(){
+  people.map(p => {p.wealth *= 2; return p;})
+  updateDom();
 }
 
 function onlyMills() {
@@ -34,10 +40,7 @@ async function addUser() {
 
 function calculateWealth(){
   let currTotal = 0;
-  people.forEach((person) => {
-    console.log(person.wealth)
-    currTotal += person.wealth;
-  })
+  people.forEach((person) => currTotal += person.wealth)
   let curr = document.createElement('div');
   curr.classList.add('curr-total')
   curr.innerHTML = `<strong>Total</strong> $ ${currTotal}`;
