@@ -67,3 +67,10 @@ h1{
   font-size: 28px;
 }
 
+.person{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
